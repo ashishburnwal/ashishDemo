@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+    <form-beans>
+        <form-bean name="rf"   type="demo.RegisterForm">
+        </form-bean>
+    </form-beans>
+
+
+    <action-mappings>
+        <action path="/register" type="demo.RegisterAction" name="rf">
+		 <forward name="success" path="/success.jsp"/>
+         <forward name="failure" path="/failure.jsp"/>
+         </action>
+    </action-mappings>
+<message-resources parameter="demo.myfile"></message-resources>
+
+<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames" 
+                      value="/org/apache/struts/validator/validator-rules.xml,
+                             /WEB-INF/validation.xml"/>
+</plug-in>
+   
+</struts-config>
